@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Load Products</title>
+
+  <script>
+    function loadProducts() {
+
+        fetch("http://localhost:8080/api/product/lists")
+            .then(response => response.json())   // convert to JSON
+            .then(products => {
+                console.log(products);           // print only products
+            })
+            .catch(error => console.log(error)); // print errors only
+    }
+  </script>
+</head>
+
+<body>
+
+<input type="button" value="LoadProducts" onclick="loadProducts()"><br>
+<div id="container"></div>
+
+</body>
+</html>
