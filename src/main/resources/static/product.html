@@ -5,21 +5,33 @@
   <title>Load Products</title>
 
   <script>
+
     function loadProducts() {
 
-        fetch("http://localhost:8080/api/product/lists")
+        fetch("http://localhost:8080/api/product/list")
             .then(response => response.json())   // convert to JSON
             .then(products => {
                 console.log(products);           // print only products
             })
             .catch(error => console.log(error)); // print errors only
-    }
+        }
+           async function loadProductsV2(){
+           fetch("http://localhost:8080/api/product/list")
+                .then((result)=>result.json())
+                .then((data)=>console.log(data))
+                .catch((error)=>console.log(error));
+
+
+            result =await fetch("http://localhost:8080/api/product/list");
+            data=await result.json();
+            console.log(data);
+        }
   </script>
 </head>
 
 <body>
 
-<input type="button" value="LoadProducts" onclick="loadProducts()"><br>
+<input type="button" value="LoadProducts" onclick="loadProductsV2()"><br>
 <div id="container"></div>
 
 </body>
