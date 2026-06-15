@@ -29,4 +29,11 @@ public class ProductService implements IProductService{
     public void deleteProductById(Integer pId) {
         productRepository.deleteById(pId);
     }
+
+    @Override
+    public void updateProduct(Product product) {
+        if (productRepository.existsById(product.getId())) {
+            productRepository.save(product);
+        }
+    }
 }
