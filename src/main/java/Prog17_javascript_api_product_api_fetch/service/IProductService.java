@@ -10,4 +10,5 @@ public interface IProductService {
     public void addProduct(Product product);
     public void deleteProductById(Integer pId);
     public void updateProduct(Product product);
+    public Product productAdd(Product product);
 }

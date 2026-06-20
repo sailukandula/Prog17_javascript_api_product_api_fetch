@@ -31,6 +31,12 @@ public class ProductController {
         return ResponseEntity.ok("Product Added Successfully");
     }
 
+    @PostMapping("/productAdd")
+    public ResponseEntity<Product> productAdd(@RequestBody Product product){
+        Product productSaved =productService.productAdd(product);
+        return ResponseEntity.ok(productSaved);
+    }
+
     @DeleteMapping("/deleteProductById/{pId}")
     public ResponseEntity<String> deleteProduct(@PathVariable Integer pId){
         productService.deleteProductById(pId);
